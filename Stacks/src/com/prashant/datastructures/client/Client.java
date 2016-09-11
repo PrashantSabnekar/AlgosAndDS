@@ -8,13 +8,13 @@ import com.prashant.datastructures.stack.Stack;
 public class Client {
 
 	private Stack<String> stack;
+	Scanner scanner = new Scanner(System.in);
 	
 	public void construcyStack(){
 		System.out.println("DataStructures Client\n"
 				+ "Enter 0 to exit\n"
 				+ "Enter 1 to create LinkedStack");
-		
-		Scanner scanner = new Scanner(System.in);		
+				
 		int stackType =  scanner.nextInt();
 		
 		switch(stackType){
@@ -27,7 +27,7 @@ public class Client {
 			default:
 				System.out.println("Invalid option, exiting\n");				
 		}
-		
+	
 	}
 	
 	public void runStack(){
@@ -36,15 +36,15 @@ public class Client {
 		}
 		int option;
 		boolean run = true;
+		Scanner scanner = new Scanner(System.in);
 		while(run) {
 			System.out.println("Stack using LinkedList\n"
 					+ "Enter 0 to exit\n"
 					+ "Enter 1 to push\n"
 					+ "Enter 2 to pop\n"
 					+ "Enter 3 to display");
-			Scanner scanner = new Scanner(System.in);
-			option = scanner.nextInt();
 			
+			option = scanner.nextInt();			
 			switch(option){
 			case 0: run = false;
 					break;
@@ -70,14 +70,18 @@ public class Client {
 				System.out.println("Enter a valid option");
 			}
 		}
+	
 	}
 	
+	public void close(){
+		scanner.close();
+	}
 	public static void main(String[] args) {
 
 		Client client = new Client();
 		client.construcyStack();
 		client.runStack();		
-		
+		client.close();
 	}
 
 }
